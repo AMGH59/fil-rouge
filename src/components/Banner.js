@@ -33,13 +33,13 @@ export class Banner extends PureComponent {
                         <User />
                     </Route>
                     <Route path="/topics">
-                        <Topics />
+                        {this.props.user.isLogged ? <Topics /> : <Redirect to='/'/>}          
                     </Route>
                     <Route path="/singin">
-                        {this.props.user.isLogged ? <Redirect to='/topics'/> : <Singin/> }
+                        {this.props.user.isLogged ? <Redirect to='/topics'/> : <Singin/>}
                     </Route>
                     <Route path="/">
-                        {this.props.user.isLogged ? <Redirect to='/topics'/> : <Home/> }
+                        {this.props.user.isLogged ? <Redirect to='/topics'/> : <Home/>}
                     </Route>
                 </Switch>
             </Router>

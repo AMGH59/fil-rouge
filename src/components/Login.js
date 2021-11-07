@@ -7,7 +7,7 @@ export class Login extends PureComponent {
         super(props)
         this.state={
             email:"",
-            password:""
+            password:"",
         }
     }
 
@@ -20,10 +20,8 @@ export class Login extends PureComponent {
     }
     handleSubmition = () => {
         this.props.checkId(this.state)
-        this.setState({
-            isLogged:this.props.isLogged
-        })
     }
+
 
     render() {
         return (
@@ -31,12 +29,18 @@ export class Login extends PureComponent {
             <h3> Déjà un compte ?</h3>
             <hr />
             <form className="form d-flex flex-column">
-                <label htmlFor="email">e-mail</label><input type="email" name="email" id="" onChange={e=>this.handleEmail(e)} />
-                <label htmlFor="password-once">Mot de passe</label><input type="text" name="password-once" id="" onChange={e=>this.handlePassword(e)} />
+                <label htmlFor="email">e-mail</label><input type="email" name="email" id="" onChange={e=>this.handleEmail(e)} onKeyDown={(e)=> e.key==='Enter' ? this.handleSubmition() : null} />
+                <label htmlFor="password-once">Mot de passe</label><input type="password" name="password-once" id="" onChange={e=>this.handlePassword(e)}  onKeyDown={(e)=> e.key==='Enter' ? this.handleSubmition() : null}/>
                 <button type="button" className="btn btn-dark mt-2" onClick={()=>this.handleSubmition()}>Se connecter</button>
             </form>
             </div>
             )
+    }
+}
+
+const MapStateToProps = (state) => {
+    return{
+        isLogged:state.user.isLogged
     }
 }
 
@@ -47,4 +51,4 @@ const MapActionToProps = (dispatch) => {
     }
 }
 
-export default connect(null,MapActionToProps)(Login)
+export default connect(MapStateToProps,MapActionToProps)(Login)

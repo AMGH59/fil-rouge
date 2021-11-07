@@ -14,4 +14,14 @@ export const users = [{
     password: "3"
 }]
 
-export const idVerifier = (userToChecked) => users.filter(user => (user.email===userToChecked.email && user.password === userToChecked.password))
+export function idVerifier(userToChecked){
+    let filteredTab=users.filter(user => (user.email===userToChecked.email && user.password === userToChecked.password))
+    if(filteredTab.length===1){
+        localStorage.setItem('currentUser',JSON.stringify(filteredTab[0]))
+    }
+    return filteredTab
+}
+
+export function deleteCurrentUser(){
+    localStorage.removeItem("currentUser")
+}

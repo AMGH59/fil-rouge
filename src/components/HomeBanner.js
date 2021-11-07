@@ -9,7 +9,8 @@ export default function HomeBanner() {
             <img src={devtalkslogo} alt="devtalks-logo" className="devtalk-logo" />
         </Link>
         <Link to="/singin">
-            <img src={avatar} alt="avatar-logo" />
+            <button class='btn btn-dark p-2 m-1'>Se connecter</button>
+            {/* <img src={avatar} alt="avatar-logo" /> */}
         </Link>
     </nav>
     )
