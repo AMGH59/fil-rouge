@@ -1,0 +1,10 @@
+.devtalk-logo{
+    height: 50px;
+}
+.disp-flex{
+    display: flex;
+
+}
+.just-sb{
+    justify-content: space-between;
+}
