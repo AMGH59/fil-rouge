@@ -5,7 +5,7 @@ import Singin from '../views/Singin'
 import HomeBanner from "./HomeBanner"
 import UserBanner from "./UserBanner"
 import User from '../views/User'
-import '../styles/HomeBanner.css'
+import '../styles/Banner.css'
 import { connect } from "react-redux"
 import Topics from "../views/Topics"
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min"
@@ -36,8 +36,7 @@ export class Banner extends PureComponent {
                             {this.props.user.isLogged ? <Topics /> : <Redirect to='/' />}
                         </Route>
                         <Route path="/singin">
-                            {/* {this.props.user.isLogged ? <Redirect to='/topics' /> : <Singin />} */}
-                            <Singin />
+                            {this.props.user.isLogged ? <Redirect to='/topics' /> : <Singin />}
                         </Route>
                         <Route path="/">
                             {this.props.user.isLogged ? <Redirect to='/topics' /> : <Home />}

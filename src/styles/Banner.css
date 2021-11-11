@@ -1,0 +1,48 @@
+.navbar{
+    height: 60px;
+
+}
+.devtalk-logo{
+    height: 45px;
+}
+.avatar-logo,.user-logo{
+    height: 45px;
+}
+
+.disp-flex{
+    display: flex;
+}
+.just-sb{
+    justify-content: space-between;
+}
+
+.scrolling-menu{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5 ease;
+    /* border: 2px;
+    margin: 2px; */
+    position: relative;
+    right :65px;
+
+}
+.menu{
+    position: relative;
+    left :40px
+}
+.avatar-logo:hover{
+    /* border: 2px solid black;
+    border-bottom: 2px solid white; */
+    z-index: 1;
+
+}
+.avatar-logo:hover~.scrolling-menu{
+    overflow: visible;
+}
+.scrolling-menu:hover{
+    overflow: visible;
+}
+.lien-compte{
+    margin-top: -15px;
+    text-decoration: none;
+}
