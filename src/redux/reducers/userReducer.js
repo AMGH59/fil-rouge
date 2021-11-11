@@ -23,14 +23,14 @@ export default function userReducer(state = initialState, action) {
         case LOG_IN:
             return {
                 ...state,
+                name:"abc",
                 isLogged: true,
-                name: action.name,
+                // name: action.name,
                 email: action.email,
                 password: action.password,
                 isAdmin: action.isAdmin
             }
         case LOG_OUT:
-            console.log(action.type)
             return {
                 ...state,
                 name: undefined,

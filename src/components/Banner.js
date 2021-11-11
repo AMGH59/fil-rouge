@@ -16,41 +16,42 @@ import { Redirect } from "react-router-dom/cjs/react-router-dom.min"
 export class Banner extends PureComponent {
     constructor(props) {
         super(props);
-        this.state={
-            
+        this.state = {
+
         }
     }
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div>
-            <Router>
+                <Router>
 
-                {this.props.user.isLogged ? <UserBanner /> : <HomeBanner />}
+                    {this.props.user.isLogged ? <UserBanner /> : <HomeBanner />}
 
-                <Switch>
-                    <Route path="/user">
-                        <User />
-                    </Route>
-                    <Route path="/topics">
-                        {this.props.user.isLogged ? <Topics /> : <Redirect to='/'/>}          
-                    </Route>
-                    <Route path="/singin">
-                        {this.props.user.isLogged ? <Redirect to='/topics'/> : <Singin/>}
-                    </Route>
-                    <Route path="/">
-                        {this.props.user.isLogged ? <Redirect to='/topics'/> : <Home/>}
-                    </Route>
-                </Switch>
-            </Router>
-        </div>
+                    <Switch>
+                        <Route path="/user">
+                            {this.props.user.isLogged ? <User /> : <Redirect to='/' />}
+                        </Route>
+                        <Route path="/topics">
+                            {this.props.user.isLogged ? <Topics /> : <Redirect to='/' />}
+                        </Route>
+                        <Route path="/singin">
+                            {/* {this.props.user.isLogged ? <Redirect to='/topics' /> : <Singin />} */}
+                            <Singin />
+                        </Route>
+                        <Route path="/">
+                            {this.props.user.isLogged ? <Redirect to='/topics' /> : <Home />}
+                        </Route>
+                    </Switch>
+                </Router>
+            </div>
         )
     }
 }
 
-const mapsStateToProps = ( state ) => {
-    return{
-        user:state.user
+const mapsStateToProps = (state) => {
+    return {
+        user: state.user
     }
 }
 // const mapsActionToProps = (dispatch) =>{
@@ -59,4 +60,4 @@ const mapsStateToProps = ( state ) => {
 //     )
 // }
 
-export default connect(mapsStateToProps,null)(Banner)
+export default connect(mapsStateToProps, null)(Banner)

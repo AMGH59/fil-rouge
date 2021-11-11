@@ -11,7 +11,7 @@ export function logIn(user) {
             email: user.email,
             password: user.password,
             isAdmin: false
-        }) : alert("Pas inscrit")
+        }) : alert("Email ou mot de passe incorect")
     }
 }     
 
