@@ -9,36 +9,56 @@ import { PureComponent } from 'react';
 class UserBanner extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
 
-    handleClick=()=>{
+    handleClick = () => {
         deleteCurrentUser()
         this.props.logOut()
     }
 
-    render() { 
-        return ( 
-            <nav class="navbar navbar-light bg-light px-5">
-            <Link to="/">
-                <img src={devtalkslogo} alt="devtalks-logo" className="devtalk-logo" />
-            </Link>
-            <div>
-                <button class='btn btn-dark p-2 m-1' onClick={() => this.handleClick()}>Se déconnecter</button>
-            <Link to="/user">
-                <img src={userPic} alt="user-logo" />
-            </Link>
-            </div>
-        </nav>
+    render() {
+        return (
+            <nav class="navbar navbar-light shadow-sm bg-light px-5">
+                <Link to="/">
+                    <img src={devtalkslogo} alt="devtalks-logo" className="devtalk-logo" />
+                </Link>
+
+                <div>
+                    <ul className='menu'>
+                        <img src={userPic} alt="user-logo " className='user-logo logo-hover border shadow-sm p-1' />
+                        <li className='scrolling-menu'>
+                            <ul className='shadow menu-content bg-light p-4 border'>
+                                <Link to="/user" style={{ textDecoration: 'none' }} >
+                                    <li className='dropdown-item'>Votre Profil</li>
+                                </Link>
+                                <hr />
+                                <li >Vous n'êtes pas <b>{this.props.name}</b> ?</li>
+                                <li className='small'><Link to="/singin" onClick={() => this.handleClick()} >changer d'utilsateur</Link>
+                                </li>
+                                <li className='small'>ou <Link to='/' onClick={() => this.handleClick()}>se déconnecter </Link></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
         );
     }
 }
 
-const mapsActionToProps = (dispatch) => {
-    return{
-        logOut: () => dispatch(logOut())
+const mapStateToProps = (state) => {
+    return {
+        name: state.user.name
     }
-    
 }
 
-export default connect(null,mapsActionToProps)(UserBanner)
+const mapsActionToProps = (dispatch) => {
+    return {
+        logOut: () => dispatch(logOut())
+    }
+
+}
+
+export default connect(mapStateToProps, mapsActionToProps)(UserBanner)

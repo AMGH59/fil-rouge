@@ -4,24 +4,26 @@ import { Link } from "react-router-dom"
 
 export default function HomeBanner() {
     return (
-        <nav class="navbar navbar-light shadow-sm bg-light px-5">
+        <nav className="navbar navbar-light shadow-sm bg-light px-5">
             <Link to="/">
                 <img src={devtalkslogo} alt="devtalks-logo" className="devtalk-logo" />
             </Link>
 
-            <div className='menu'>
-                <img src={avatar} alt="avatar-logo " className='avatar-logo ' />
-                <div className='scrolling-menu'>
-                    <div className='border border-dark bg-light p-4'>
+            <ul className='menu'>
+                <img src={avatar} alt="avatar-logo " className='avatar-logo logo-hover border shadow-sm p-1 ' />
+                <li className='scrolling-menu'>
+                    <ul className='shadow menu-content bg-light p-4 border'>
+                        <li>
                         <Link to="/singin">
-                            <button className='btn btn-dark p-2 m-2'>Se connecter</button>
+                            <button className='btn btn-dark  m-1'>Se connecter</button>
                         </Link>
+                        </li>
                         <hr/>
-                        <p>Nouvel utilisateur ?</p>
-                        <p className='lien-compte'><Link to="/singin">Créez un compte.</Link></p>
-                </div>
-            </div>
-        </div>
+                        <li>Nouvel utilisateur ?</li>
+                        <li ><Link to="/singin">Créez un compte.</Link></li>
+                </ul>
+            </li>
+        </ul>
         </nav >
     )
 }
