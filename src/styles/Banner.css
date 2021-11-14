@@ -3,13 +3,13 @@
 }
 .devtalk-logo{
     height: 45px;
+    margin: 0 0 15px -5px;
 }
-.avatar-logo{
+.avatar-logo,.user-logo{
     height: 45px;
+    margin-right: -20px;
 }
-.user-logo{
-    height: 45px;
-}
+
 
 .disp-flex{
     display: flex;
@@ -26,6 +26,8 @@
     margin: 2px; */
     position: relative;
     right :60px;
+    margin-right: -25px;
+
 }
 .menu-content{
     list-style: none;

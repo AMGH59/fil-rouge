@@ -1,0 +1,11 @@
+.text-home{
+    font-size: 20px;
+    text-align: left;
+}
+
+.little-card{
+    height: 450px;
+    min-width: 450px;
+    max-width: 450px;
+}
+
