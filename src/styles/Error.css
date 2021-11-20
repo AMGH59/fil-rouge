@@ -1,0 +1,22 @@
+.devtalk_logo{
+    height: 60px;
+    width: 200px;
+}
+.image_404{
+    height: 500px;
+}
+.text-home{
+    font-size: 20px;
+    text-align: left;
+}
+
+.little-card{
+    height: 450px;
+    min-width: 450px;
+    max-width: 450px;
+}
+
+a:link,a:visited,a:hover,a:active{
+    color: black;
+}
+
